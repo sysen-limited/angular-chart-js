@@ -1,0 +1,11 @@
+# Dependencies
+markdown:         kramdown
+highlighter:      rouge
+
+# Server
+source:           site
+destination:      _gh_pages
+host:             0.0.0.0
+port:             9001
+url:              http://
+encoding:         UTF-8

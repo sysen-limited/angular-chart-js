@@ -1,0 +1,55 @@
+{
+  "name": "jekyll-angular",
+  "description": "Boilerplate project to enable quick development of a static website",
+  "version": "0.1.2",
+  "keywords": [
+    "jekyll",
+    "angular",
+    "less",
+    "front-end",
+    "website",
+    "blog"
+  ],
+  "homepage": "http://",
+  "author": "SYSEN LIMITED",
+  "scripts": {
+    "test": "grunt test",
+    "postinstall": "bower install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sysen-limited/jekyll-angular"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-banner": "~0.3.1",
+    "grunt-contrib-clean": "~0.6.0",
+
+    "grunt-contrib-less": "~1.0.0",
+    "grunt-contrib-csslint": "~0.4.0",
+    "grunt-csscomb": "~3.0.0",
+    "grunt-contrib-cssmin": "~0.11.0",
+    "grunt-autoprefixer": "~3.0.1",
+
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-jscs": "~1.2.0",
+    "grunt-karma": "latest",
+    "karma-jasmine": "~0.2.0",
+    "karma-phantomjs-launcher": "latest",
+    "karma-spec-reporter": "latest",
+    "karma-coverage": "~0.4",
+    "grunt-contrib-concat": "~0.5.0",
+    "grunt-contrib-uglify": "~0.7.0",
+
+    "grunt-jekyll": "~0.4.2",
+    "grunt-html-validation": "~0.1.18",
+
+    "grunt-contrib-copy": "~0.7.0",
+    "grunt-contrib-compress": "~0.13.0",
+    "grunt-contrib-connect": "latest",
+    "grunt-contrib-watch": "latest",
+
+    "load-grunt-tasks": "~2.0.0",
+    "time-grunt": "~1.0.0"
+  }
+}

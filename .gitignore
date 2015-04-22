@@ -1,0 +1,13 @@
+# Common / OS
+._*
+.DS_Store
+.idea
+Thumbs.db
+
+# Ignore generated files / folders
+logs
+_gh_pages
+
+# Dependencies
+bower_components
+node_modules
