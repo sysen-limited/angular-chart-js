@@ -1,2 +1,3 @@
 # angular-chart-js
-Angular wrapper for Chart JS
+
+Angular wrapper for ChartJS

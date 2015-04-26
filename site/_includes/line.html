@@ -1,0 +1,120 @@
+<div layout="column" layout-margin>
+    <h1 flex>Line Graph</h1>
+
+    <p flex>A line chart is a way of plotting data points on a line.</p>
+    <p flex>Often, it is used to show trend data, and the comparison of two data sets.</p>
+</div>
+
+<div layout="column" layout-margin>
+    <div data-ng-controller="DemoCtrl as demo" class="md-whiteframe-z1" flex>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>
+                    <span>Basic Usage</span>
+                </h2>
+                <span flex></span>
+                <md-button data-ng-click="demo.showSource = !demo.showSource" class="md-icon-button" aria-label="View Source">
+                    <md-tooltip>View Source</md-tooltip>
+                    <md-icon class="fa fa-lg" md-font-icon="fa-code"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-content data-ng-if="demo.showSource" layout-padding>
+            <md-tabs md-dynamic-height md-border-bottom>
+                <md-tab label="HTML">
+                    <md-content class="md-padding">
+                        <h3>HTML</h3>
+                        {% highlight html %}
+
+<div data-ng-controller="LineCtrl as line">
+    <canvas data-sys-chart-line data-dataset="line.data" width="400" height="240"></canvas>
+</div>
+
+                        {% endhighlight %}
+                    </md-content>
+                </md-tab>
+                <md-tab label="JS">
+                    <md-content class="md-padding">
+                        <h3>JavaScript</h3>
+                        {% highlight json %}
+
+this.data = {
+    labels: ["January", "February", "March", "April", "May", "June"],
+    datasets: [
+        {
+            fillColor: "rgba(220,220,220,0.2)",
+            strokeColor: "rgba(220,220,220,1)",
+            pointColor: "rgba(220,220,220,1)",
+            data: [40, 10, 60, 70, 20, 20]
+        },
+        {
+            fillColor: "rgba(151,187,205,0.2)",
+            strokeColor: "rgba(151,187,205,1)",
+            pointColor: "rgba(151,187,205,1)",
+            data: [30, 70, 40, 90, 60, 70]
+        }
+    ]
+};
+
+                        {% endhighlight %}
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+        </md-content>
+
+        <div data-ng-controller="LineCtrl as line" layout="column" layout-align="center center" layout-padding>
+            <canvas data-sys-chart-line data-dataset="line.data" width="600" height="240"></canvas>
+        </div>
+    </div>
+
+    <div data-ng-controller="DemoCtrl as demo" class="md-whiteframe-z1" flex>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>
+                    <span>with Options</span>
+                </h2>
+                <span flex></span>
+                <md-button data-ng-click="demo.showSource = !demo.showSource" class="md-icon-button" aria-label="View Source">
+                    <md-tooltip>View Source</md-tooltip>
+                    <md-icon class="fa fa-lg" md-font-icon="fa-code"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-content data-ng-if="demo.showSource" layout-padding>
+            <md-tabs md-dynamic-height md-border-bottom>
+                <md-tab label="HTML">
+                    <md-content class="md-padding">
+                        <h3>HTML</h3>
+                        {% highlight html %}
+
+<div data-ng-controller="LineCtrl as line">
+    <canvas data-sys-chart-line data-dataset="line.data" data-options="line.options" width="400" height="240"></canvas>
+</div>
+
+                        {% endhighlight %}
+                    </md-content>
+                </md-tab>
+                <md-tab label="JS">
+                    <md-content class="md-padding">
+                        <h3>JavaScript</h3>
+                        {% highlight json %}
+
+this.options = {
+    scaleShowGridLines: false,
+    pointDot: false,
+    bezierCurve: false
+};
+
+                        {% endhighlight %}
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+        </md-content>
+
+        <div data-ng-controller="LineCtrl as line" layout="column" layout-align="center center" layout-padding>
+            <canvas data-sys-chart-line data-dataset="line.data" data-options="line.options" width="600" height="240"></canvas>
+        </div>
+    </div>
+</div>
