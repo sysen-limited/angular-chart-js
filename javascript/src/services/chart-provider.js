@@ -11,6 +11,7 @@
         ChartProvider.prototype.$get = ['$window', function($window) {
             if ($window.Chart) {
                 var chart = $window.Chart;
+                chart.defaults.global.responsive = true;
 
                 return chart;
             } else {
@@ -24,5 +25,5 @@
         return ChartProvider;
     })();
 
-    angular.module('sysChart').provider('chartProvider', ChartProvider);
+    angular.module('sysChartProvider', []).provider('chartProvider', ChartProvider);
 })();

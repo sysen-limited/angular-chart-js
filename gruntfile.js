@@ -146,7 +146,7 @@ module.exports = function (grunt) {
         // Create joined up JS file
         concat: {
             site: {
-                src: ['javascript/<%= pkg.name %>.js', 'javascript/src/**/*.js'],
+                src: ['javascript/src/**/*.js'],
                 dest: '<%= site %>/assets/js/<%= pkg.name %>.js'
             }
         },
@@ -187,6 +187,11 @@ module.exports = function (grunt) {
                 path: '<%= clean.validationLogs %>/status.json',
                 reportpath: '<%= clean.validationLogs %>/report.json',
                 relaxerror: [
+                    'Attribute layout not allowed on element body at this point.',
+                    'Attribute layout not allowed on element div at this point.',
+                    'Attribute flex not allowed on element div at this point.',
+                    'Element md-toolbar not allowed as child of element div in this context.',
+                    'Element md-content not allowed as child of element div in this context.',
                     'This interface to HTML5 document checking is deprecated.'
                 ]
             },

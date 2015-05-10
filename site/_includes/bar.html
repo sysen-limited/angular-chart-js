@@ -1,8 +1,8 @@
 <div layout="column" layout-margin>
-    <h1 flex>Line Graph</h1>
+    <h1 flex>Bar Graph</h1>
 
-    <p flex>A line chart is a way of plotting data points on a line.</p>
-    <p flex>Often, it is used to show trend data, and the comparison of two data sets.</p>
+    <p flex>A bar chart is a way of showing data as bars.</p>
+    <p flex>It is sometimes used to show trend data, and the comparison of multiple data sets side by side.</p>
 </div>
 
 <div layout="column" layout-margin>
@@ -27,8 +27,8 @@
                         <h3>HTML</h3>
                         {% highlight html %}
 
-<div data-ng-controller="LineCtrl as line">
-    <canvas data-sys-chart-line data-dataset="line.data" width="400" height="240"></canvas>
+<div data-ng-controller="BarCtrl as bar">
+    <canvas data-sys-chart-bar data-dataset="bar.data" width="400" height="240"></canvas>
 </div>
 
                         {% endhighlight %}
@@ -41,21 +41,19 @@
 (function () {
     'use strict';
 
-    function LineCtrl ( ) {
+    function BarCtrl ( ) {
         this.data = {
-            labels: ["January", "February", "March", "April", "May", "June"],
+            labels: ["January", "February", "March", "April", "May", "June", "July"],
             datasets: [
                 {
                     fillColor: "rgba(220,220,220,0.2)",
                     strokeColor: "rgba(220,220,220,1)",
-                    pointColor: "rgba(220,220,220,1)",
-                    data: [40, 10, 60, 70, 20, 20]
+                    data: [65, 59, 80, 81, 56, 55, 40]
                 },
                 {
                     fillColor: "rgba(151,187,205,0.2)",
                     strokeColor: "rgba(151,187,205,1)",
-                    pointColor: "rgba(151,187,205,1)",
-                    data: [30, 70, 40, 90, 60, 70]
+                    data: [28, 48, 40, 19, 86, 27, 90]
                 }
             ]
         };
@@ -67,8 +65,8 @@
             </md-tabs>
         </md-content>
 
-        <div data-ng-controller="LineCtrl as line" layout="column" layout-align="center center" layout-margin>
-            <canvas data-sys-chart-line data-dataset="line.data" width="600" height="240"></canvas>
+        <div data-ng-controller="BarCtrl as bar" layout="column" layout-align="center center" layout-margin>
+            <canvas data-sys-chart-bar data-dataset="bar.data" width="600" height="240"></canvas>
         </div>
     </div>
 
@@ -93,8 +91,8 @@
                         <h3>HTML</h3>
                         {% highlight html %}
 
-<div data-ng-controller="LineCtrl as line">
-    <canvas data-sys-chart-line data-dataset="line.data" data-options="line.options" width="400" height="240"></canvas>
+<div data-ng-controller="BarCtrl as bar">
+    <canvas data-sys-chart-bar data-dataset="bar.data" data-options="bar.options" width="400" height="240"></canvas>
 </div>
 
                         {% endhighlight %}
@@ -107,14 +105,14 @@
 (function () {
     'use strict';
 
-    function LineCtrl ( ) {
+    function BarCtrl ( ) {
 
         // Same as basic but also...
 
         this.options = {
             scaleShowGridLines: false,
-            pointDot: false,
-            bezierCurve: false
+            barShowStroke : false,
+            barDatasetSpacing : 0
         };
     }
 })();
@@ -124,8 +122,8 @@
             </md-tabs>
         </md-content>
 
-        <div data-ng-controller="LineCtrl as line" layout="column" layout-align="center center" layout-margin>
-            <canvas data-sys-chart-line data-dataset="line.data" data-options="line.options" width="600" height="240"></canvas>
+        <div data-ng-controller="BarCtrl as bar" layout="column" layout-align="center center" layout-margin>
+            <canvas data-sys-chart-bar data-dataset="bar.data" data-options="bar.options" width="600" height="240"></canvas>
         </div>
     </div>
 </div>
