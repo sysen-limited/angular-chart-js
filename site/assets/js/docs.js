@@ -76,6 +76,32 @@ angular.module('sysen', ['ngMaterial', 'sysChart'])
         };
     })
 
+    .controller('RadarCtrl', function() {
+        this.data = {
+            labels: ["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running"],
+            datasets: [
+                {
+                    fillColor: "rgba(220,220,220,0.2)",
+                    strokeColor: "rgba(220,220,220,1)",
+                    pointColor: "rgba(220,220,220,1)",
+                    data: [65, 59, 90, 81, 56, 55, 40]
+                },
+                {
+                    fillColor: "rgba(151,187,205,0.2)",
+                    strokeColor: "rgba(151,187,205,1)",
+                    pointColor: "rgba(151,187,205,1)",
+                    data: [28, 48, 40, 19, 96, 27, 100]
+                }
+            ]
+        };
+
+        this.options = {
+            pointDot : false,
+            datasetStroke : false,
+            pointLabelFontSize : 12
+        };
+    })
+
     .controller('DemoCtrl', function() {
         this.showSource = false;
     });

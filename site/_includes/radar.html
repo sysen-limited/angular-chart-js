@@ -1,0 +1,134 @@
+<div layout="column" layout-margin>
+    <h1 flex>Radar Chart</h1>
+
+    <p flex>A radar chart is a way of showing multiple data points and the variation between them.</p>
+    <p flex>They are often useful for comparing the points of two or more different data sets.</p>
+</div>
+
+<div layout="column" layout-margin>
+    <div data-ng-controller="DemoCtrl as demo" class="md-whiteframe-z1" flex>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>
+                    <span>Basic Usage</span>
+                </h2>
+                <span flex></span>
+                <md-button data-ng-click="demo.showSource = !demo.showSource" class="md-icon-button" aria-label="View Source">
+                    <md-tooltip>View Source</md-tooltip>
+                    <md-icon class="fa fa-lg" md-font-icon="fa-code"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-content data-ng-if="demo.showSource" layout-padding>
+            <md-tabs class="source" md-border-bottom>
+                <md-tab label="HTML">
+                    <md-content class="md-padding">
+                        <h3>HTML</h3>
+                        {% highlight html %}
+
+<div data-ng-controller="RadarCtrl as radar">
+    <canvas data-sys-chart-radar
+            data-dataset="radar.data"></canvas>
+</div>
+
+                        {% endhighlight %}
+                    </md-content>
+                </md-tab>
+                <md-tab label="JS">
+                    <md-content class="md-padding">
+                        <h3>JavaScript</h3>
+                        {% highlight js %}
+(function () {
+    'use strict';
+
+    function RadarCtrl ( ) {
+        this.data = {
+            labels: ["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running"],
+            datasets: [
+                {
+                    fillColor: "rgba(220,220,220,0.2)",
+                    strokeColor: "rgba(220,220,220,1)",
+                    pointColor: "rgba(220,220,220,1)",
+                    data: [65, 59, 90, 81, 56, 55, 40]
+                },
+                {
+                    fillColor: "rgba(151,187,205,0.2)",
+                    strokeColor: "rgba(151,187,205,1)",
+                    pointColor: "rgba(151,187,205,1)",
+                    data: [28, 48, 40, 19, 96, 27, 100]
+                }
+            ]
+        };
+    }
+})();
+                        {% endhighlight %}
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+        </md-content>
+
+        <div data-ng-controller="RadarCtrl as radar" layout="column" layout-align="center center" layout-margin>
+            <canvas data-sys-chart-radar data-dataset="radar.data" width="600" height="240"></canvas>
+        </div>
+    </div>
+
+    <div data-ng-controller="DemoCtrl as demo" class="md-whiteframe-z1" flex>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>
+                    <span>with Options</span>
+                </h2>
+                <span flex></span>
+                <md-button data-ng-click="demo.showSource = !demo.showSource" class="md-icon-button" aria-label="View Source">
+                    <md-tooltip>View Source</md-tooltip>
+                    <md-icon class="fa fa-lg" md-font-icon="fa-code"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-content data-ng-if="demo.showSource" layout-padding>
+            <md-tabs class="source" md-border-bottom>
+                <md-tab label="HTML">
+                    <md-content class="md-padding">
+                        <h3>HTML</h3>
+                        {% highlight html %}
+
+<div data-ng-controller="RadarCtrl as radar">
+    <canvas data-sys-chart-radar
+            data-dataset="radar.data"
+            data-options="radar.options"></canvas>
+</div>
+
+                        {% endhighlight %}
+                    </md-content>
+                </md-tab>
+                <md-tab label="JS">
+                    <md-content class="md-padding">
+                        <h3>JavaScript</h3>
+                        {% highlight js %}
+(function () {
+    'use strict';
+
+    function RadarCtrl ( ) {
+
+        // Same as basic but also...
+
+        this.options = {
+            pointDot : false,
+            datasetStroke : false,
+            pointLabelFontSize : 12
+        };
+    }
+})();
+                        {% endhighlight %}
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+        </md-content>
+
+        <div data-ng-controller="RadarCtrl as radar" layout="column" layout-align="center center" layout-margin>
+            <canvas data-sys-chart-radar data-dataset="radar.data" data-options="radar.options" width="600" height="240"></canvas>
+        </div>
+    </div>
+</div>

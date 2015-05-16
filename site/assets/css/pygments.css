@@ -2,7 +2,7 @@
   background-color: #ffc;
 }
 .c {
-  font-style: italic; 
+  font-style: italic;
   color: #998;
 } /* Comment */
 .err {
@@ -10,28 +10,28 @@
   background-color: #e3d2d2;
 } /* Error */
 .k {
-  font-weight: bold; 
+  font-weight: bold;
   color: #000;
 } /* Keyword */
 .o {
-  font-weight: bold; 
+  font-weight: bold;
   color: #000;
 } /* Operator */
 .cm {
-  font-style: italic; 
+  font-style: italic;
   color: #998;
 } /* Comment.Multiline */
 .cp {
-  font-style: italic; 
+  font-style: italic;
   font-weight: bold;
   color: #999;
 } /* Comment.Preproc */
 .c1 {
-  font-style: italic; 
+  font-style: italic;
   color: #998;
 } /* Comment.Single */
 .cs {
-  font-style: italic; 
+  font-style: italic;
   font-weight: bold;
   color: #999;
 } /* Comment.Special */
@@ -40,7 +40,7 @@
   background-color: #fdd;
 } /* Generic.Deleted */
 .ge {
-  font-style: italic; 
+  font-style: italic;
   color: #000;
 } /* Generic.Emph */
 .gr {
@@ -69,27 +69,27 @@
   color: #a00;
 } /* Generic.Traceback */
 .kc {
-  font-weight: bold; 
+  font-weight: bold;
   color: #000;
 } /* Keyword.Constant */
 .kd {
-  font-weight: bold; 
+  font-weight: bold;
   color: #000;
 } /* Keyword.Declaration */
 .kn {
-  font-weight: bold; 
+  font-weight: bold;
   color: #000;
 } /* Keyword.Namespace */
 .kp {
-  font-weight: bold; 
+  font-weight: bold;
   color: #000;
 } /* Keyword.Pseudo */
 .kr {
-  font-weight: bold; 
+  font-weight: bold;
   color: #000;
 } /* Keyword.Reserved */
 .kt {
-  font-weight: bold; 
+  font-weight: bold;
   color: #458;
 } /* Keyword.Type */
 .m {
@@ -105,29 +105,29 @@
   color: #0086b3;
 } /* Name.Builtin */
 .nc {
-  font-weight: bold; 
+  font-weight: bold;
   color: #458;
 } /* Name.Class */
 .no {
   color: #008080;
 } /* Name.Constant */
 .nd {
-  font-weight: bold; 
+  font-weight: bold;
   color: #3c5d5d;
 } /* Name.Decorator */
 .ni {
   color: #800080;
 } /* Name.Entity */
 .ne {
-  font-weight: bold; 
+  font-weight: bold;
   color: #900;
 } /* Name.Exception */
 .nf {
-  font-weight: bold; 
+  font-weight: bold;
   color: #900;
 } /* Name.Function */
 .nl {
-  font-weight: bold; 
+  font-weight: bold;
   color: #900;
 } /* Name.Label */
 .nn {
@@ -140,7 +140,7 @@
   color: #008080;
 } /* Name.Variable */
 .ow {
-  font-weight: bold; 
+  font-weight: bold;
   color: #000;
 } /* Operator.Word */
 .w {
