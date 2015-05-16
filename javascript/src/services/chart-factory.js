@@ -15,14 +15,15 @@
                     elem = angular.element(elem);
                     ctx = elem[0].getContext("2d");
 
-                    new ChartJS(ctx)[type](scope.dataset, scope.options);
+                    var chartOptions = angular.extend({}, ChartJS.opts[type], scope.options);
+                    new ChartJS.lib(ctx)[type](scope.dataset, chartOptions);
                 }
             };
         }
     }
 
     ChartFactory.$inject = [
-        'chartProvider'
+        'chart'
     ];
 
     angular.module('sysChartFactory', []).factory('ChartFactory', ChartFactory);
