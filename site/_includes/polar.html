@@ -1,0 +1,165 @@
+<div layout="column" layout-margin>
+    <h1 flex>Polar Chart</h1>
+
+    <p flex>Polar area charts are similar to pie charts, but each segment has the same angle - the radius of the segment differs depending on the value.</p>
+    <p flex>This type of chart is often useful when we want to show a comparison data similar to a pie chart, but also show a scale of values for context.</p>
+
+    <div layout="row" layout-align="end">
+        <md-button href="http://www.chartjs.org/docs/#polar-area-chart">Chart.JS Documentation</md-button>
+    </div>
+</div>
+
+
+<div layout="column" layout-margin>
+    <div data-ng-controller="DemoCtrl as demo" data-ng-init="demo.run = false" class="md-whiteframe-z1" flex>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>
+                    <span>Basic Usage</span>
+                </h2>
+                <span flex></span>
+                <md-button data-ng-click="demo.run = !demo.run" class="md-icon-button" aria-label="Run Demo">
+                    <md-tooltip>Run Demo</md-tooltip>
+                    <md-icon class="fa fa-lg" md-font-icon="fa-play"></md-icon>
+                </md-button>
+                <md-button data-ng-click="demo.showSource = !demo.showSource" class="md-icon-button" aria-label="View Source">
+                    <md-tooltip>View Source</md-tooltip>
+                    <md-icon class="fa fa-lg" md-font-icon="fa-code"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-content data-ng-if="demo.showSource" layout-padding>
+            <md-tabs class="source" md-border-bottom>
+                <md-tab label="HTML">
+                    <md-content class="md-padding">
+                        <h3>HTML</h3>
+                        {% highlight html %}
+
+<div data-ng-controller="PolarCtrl as polar">
+    <canvas data-sys-chart-polar
+            data-dataset="polar.data"></canvas>
+</div>
+
+                        {% endhighlight %}
+                    </md-content>
+                </md-tab>
+                <md-tab label="JS">
+                    <md-content class="md-padding">
+                        <h3>JavaScript</h3>
+                        {% highlight js %}
+(function () {
+    'use strict';
+
+    function PolarCtrl ( ) {
+        this.data = [
+            {
+                value: 300,
+                color:"#F7464A",
+                highlight: "#FF5A5E",
+                label: "Red"
+            },
+            {
+                value: 50,
+                color: "#46BFBD",
+                highlight: "#5AD3D1",
+                label: "Green"
+            },
+            {
+                value: 100,
+                color: "#FDB45C",
+                highlight: "#FFC870",
+                label: "Yellow"
+            },
+            {
+                value: 40,
+                color: "#949FB1",
+                highlight: "#A8B3C5",
+                label: "Grey"
+            },
+            {
+                value: 120,
+                color: "#4D5360",
+                highlight: "#616774",
+                label: "Dark Grey"
+            }
+        ];
+    }
+})();
+                        {% endhighlight %}
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+        </md-content>
+
+        <div data-ng-controller="PolarCtrl as polar" layout="column" layout-align="center center" layout-margin>
+            <canvas data-sys-chart-polar data-dataset="polar.data" width="600" height="240" data-ng-if="demo.run"></canvas>
+            <canvas data-sys-chart-polar data-dataset="polar.data" width="600" height="240" data-ng-if="!demo.run"></canvas>
+        </div>
+    </div>
+
+    <div data-ng-controller="DemoCtrl as demo" data-ng-init="demo.run = false" class="md-whiteframe-z1" flex>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>
+                    <span>with Options</span>
+                </h2>
+                <span flex></span>
+                <md-button data-ng-click="demo.run = !demo.run" class="md-icon-button" aria-label="Run Demo">
+                    <md-tooltip>Run Demo</md-tooltip>
+                    <md-icon class="fa fa-lg" md-font-icon="fa-play"></md-icon>
+                </md-button>
+                <md-button data-ng-click="demo.showSource = !demo.showSource" class="md-icon-button" aria-label="View Source">
+                    <md-tooltip>View Source</md-tooltip>
+                    <md-icon class="fa fa-lg" md-font-icon="fa-code"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-content data-ng-if="demo.showSource" layout-padding>
+            <md-tabs class="source" md-border-bottom>
+                <md-tab label="HTML">
+                    <md-content class="md-padding">
+                        <h3>HTML</h3>
+                        {% highlight html %}
+
+<div data-ng-controller="PolarCtrl as polar">
+    <canvas data-sys-chart-polar
+            data-dataset="polar.data"
+            data-options="polar.options"></canvas>
+</div>
+
+                        {% endhighlight %}
+                    </md-content>
+                </md-tab>
+                <md-tab label="JS">
+                    <md-content class="md-padding">
+                        <h3>JavaScript</h3>
+                        {% highlight js %}
+(function () {
+    'use strict';
+
+    function PolarCtrl ( ) {
+
+        // Same as basic but also...
+
+        this.options = {
+            segmentShowStroke : false,
+            animationSteps : 20,
+            animationEasing : "linear",
+            animateScale : true
+        };
+    }
+})();
+                        {% endhighlight %}
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+        </md-content>
+
+        <div data-ng-controller="PolarCtrl as polar" layout="column" layout-align="center center" layout-margin>
+            <canvas data-sys-chart-polar data-dataset="polar.data" data-options="polar.options" width="600" height="240" data-ng-if="demo.run"></canvas>
+            <canvas data-sys-chart-polar data-dataset="polar.data" data-options="polar.options" width="600" height="240" data-ng-if="!demo.run"></canvas>
+        </div>
+    </div>
+</div>
