@@ -1,0 +1,156 @@
+<div layout="column" layout-margin>
+    <h1 flex>Doughnut Chart</h1>
+
+    <p flex>Doughnut charts behave just like pie charts. They are divided into segments, the arc of each segment shows the proportional value of each piece of data.</p>
+    <p flex>They are excellent at showing the relational proportions between data.</p>
+
+    <div layout="row" layout-align="end">
+        <md-button href="http://www.chartjs.org/docs/#doughnut-pie-chart">Chart.JS Documentation</md-button>
+    </div>
+</div>
+
+
+<div layout="column" layout-margin>
+    <div data-ng-controller="DemoCtrl as demo" data-ng-init="demo.run = false" class="md-whiteframe-z1" flex>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>
+                    <span>Basic Usage</span>
+                </h2>
+                <span flex></span>
+                <md-button data-ng-click="demo.run = !demo.run" class="md-icon-button" aria-label="Run Demo">
+                    <md-tooltip>Run Demo</md-tooltip>
+                    <md-icon class="fa fa-lg" md-font-icon="fa-play"></md-icon>
+                </md-button>
+                <md-button data-ng-click="demo.showSource = !demo.showSource" class="md-icon-button" aria-label="View Source">
+                    <md-tooltip>View Source</md-tooltip>
+                    <md-icon class="fa fa-lg" md-font-icon="fa-code"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-content data-ng-if="demo.showSource" layout-padding>
+            <md-tabs class="source" md-border-bottom>
+                <md-tab label="HTML">
+                    <md-content class="md-padding">
+                        <h3>HTML</h3>
+                        {% highlight html %}
+
+<div data-ng-controller="DoughnutCtrl as doughnut">
+    <canvas data-sys-chart-doughnut
+            data-dataset="doughnut.data"
+            width="600"
+            height="240"></canvas>
+</div>
+
+                        {% endhighlight %}
+                    </md-content>
+                </md-tab>
+                <md-tab label="JS">
+                    <md-content class="md-padding">
+                        <h3>JavaScript</h3>
+                        {% highlight js %}
+(function () {
+    'use strict';
+
+    function DoughnutCtrl ( ) {
+        this.data = [
+            {
+                value: 300,
+                color:"#F7464A",
+                highlight: "#FF5A5E",
+                label: "Red"
+            },
+            {
+                value: 50,
+                color: "#46BFBD",
+                highlight: "#5AD3D1",
+                label: "Green"
+            },
+            {
+                value: 100,
+                color: "#FDB45C",
+                highlight: "#FFC870",
+                label: "Yellow"
+            }
+        ];
+    }
+})();
+                        {% endhighlight %}
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+        </md-content>
+
+        <div data-ng-controller="DoughnutCtrl as doughnut" layout="column" layout-align="center center" layout-margin>
+            <canvas data-sys-chart-doughnut data-dataset="doughnut.data" width="600" height="240" data-ng-if="demo.run"></canvas>
+            <canvas data-sys-chart-doughnut data-dataset="doughnut.data" width="600" height="240" data-ng-if="!demo.run"></canvas>
+        </div>
+    </div>
+
+    <div data-ng-controller="DemoCtrl as demo" data-ng-init="demo.run = false" class="md-whiteframe-z1" flex>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>
+                    <span>with Options</span>
+                </h2>
+                <span flex></span>
+                <md-button data-ng-click="demo.run = !demo.run" class="md-icon-button" aria-label="Run Demo">
+                    <md-tooltip>Run Demo</md-tooltip>
+                    <md-icon class="fa fa-lg" md-font-icon="fa-play"></md-icon>
+                </md-button>
+                <md-button data-ng-click="demo.showSource = !demo.showSource" class="md-icon-button" aria-label="View Source">
+                    <md-tooltip>View Source</md-tooltip>
+                    <md-icon class="fa fa-lg" md-font-icon="fa-code"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-content data-ng-if="demo.showSource" layout-padding>
+            <md-tabs class="source" md-border-bottom>
+                <md-tab label="HTML">
+                    <md-content class="md-padding">
+                        <h3>HTML</h3>
+                        {% highlight html %}
+
+<div data-ng-controller="DoughnutCtrl as doughnut">
+    <canvas data-sys-chart-doughnut
+            data-dataset="doughnut.data"
+            data-options="doughnut.options"
+            width="600"
+            height="240"></canvas>
+</div>
+
+                        {% endhighlight %}
+                    </md-content>
+                </md-tab>
+                <md-tab label="JS">
+                    <md-content class="md-padding">
+                        <h3>JavaScript</h3>
+                        {% highlight js %}
+(function () {
+    'use strict';
+
+    function DoughnutCtrl ( ) {
+
+        // Same as basic but also...
+
+        this.options = {
+            segmentShowStroke : false,
+            animationSteps : 40,
+            animationEasing : "linear"
+        };
+    }
+})();
+                        {% endhighlight %}
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+        </md-content>
+
+        <div data-ng-controller="DoughnutCtrl as doughnut" layout="column" layout-align="center center" layout-margin>
+            <canvas data-sys-chart-doughnut data-dataset="doughnut.data" data-options="doughnut.options" width="600" height="240" data-ng-if="demo.run"></canvas>
+            <canvas data-sys-chart-doughnut data-dataset="doughnut.data" data-options="doughnut.options" width="600" height="240" data-ng-if="!demo.run"></canvas>
+        </div>
+    </div>
+</div>

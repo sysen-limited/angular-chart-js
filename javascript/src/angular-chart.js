@@ -22,5 +22,13 @@
 
         .directive('sysChartPolar', ['ChartFactory', function(ChartFactory) {
             return new ChartFactory('PolarArea');
+        }])
+
+        .directive('sysChartPie', ['ChartFactory', function(ChartFactory) {
+            return new ChartFactory('Pie');
+        }])
+
+        .directive('sysChartDoughnut', ['ChartFactory', function(ChartFactory) {
+            return new ChartFactory('Doughnut');
         }]);
 })();
