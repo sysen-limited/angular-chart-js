@@ -6,13 +6,17 @@
 </div>
 
 <div layout="column" layout-margin>
-    <div data-ng-controller="DemoCtrl as demo" class="md-whiteframe-z1" flex>
+    <div data-ng-controller="DemoCtrl as demo" data-ng-init="demo.run = false" class="md-whiteframe-z1" flex>
         <md-toolbar>
             <div class="md-toolbar-tools">
                 <h2>
                     <span>Basic Usage</span>
                 </h2>
                 <span flex></span>
+                <md-button data-ng-click="demo.run = !demo.run" class="md-icon-button" aria-label="Run Demo">
+                    <md-tooltip>Run Demo</md-tooltip>
+                    <md-icon class="fa fa-lg" md-font-icon="fa-play"></md-icon>
+                </md-button>
                 <md-button data-ng-click="demo.showSource = !demo.showSource" class="md-icon-button" aria-label="View Source">
                     <md-tooltip>View Source</md-tooltip>
                     <md-icon class="fa fa-lg" md-font-icon="fa-code"></md-icon>
@@ -28,7 +32,10 @@
                         {% highlight html %}
 
 <div data-ng-controller="LineCtrl as line">
-    <canvas data-sys-chart-line data-dataset="line.data" width="400" height="240"></canvas>
+    <canvas data-sys-chart-line
+            data-dataset="line.data"
+            width="400"
+            height="240"></canvas>
 </div>
 
                         {% endhighlight %}
@@ -68,17 +75,22 @@
         </md-content>
 
         <div data-ng-controller="LineCtrl as line" layout="column" layout-align="center center" layout-margin>
-            <canvas data-sys-chart-line data-dataset="line.data" width="600" height="240"></canvas>
+            <canvas data-sys-chart-line data-dataset="line.data" width="600" height="240" data-ng-if="demo.run"></canvas>
+            <canvas data-sys-chart-line data-dataset="line.data" width="600" height="240" data-ng-if="!demo.run"></canvas>
         </div>
     </div>
 
-    <div data-ng-controller="DemoCtrl as demo" class="md-whiteframe-z1" flex>
+    <div data-ng-controller="DemoCtrl as demo" data-ng-init="demo.run = false" class="md-whiteframe-z1" flex>
         <md-toolbar>
             <div class="md-toolbar-tools">
                 <h2>
                     <span>with Options</span>
                 </h2>
                 <span flex></span>
+                <md-button data-ng-click="demo.run = !demo.run" class="md-icon-button" aria-label="Run Demo">
+                    <md-tooltip>Run Demo</md-tooltip>
+                    <md-icon class="fa fa-lg" md-font-icon="fa-play"></md-icon>
+                </md-button>
                 <md-button data-ng-click="demo.showSource = !demo.showSource" class="md-icon-button" aria-label="View Source">
                     <md-tooltip>View Source</md-tooltip>
                     <md-icon class="fa fa-lg" md-font-icon="fa-code"></md-icon>
@@ -94,7 +106,11 @@
                         {% highlight html %}
 
 <div data-ng-controller="LineCtrl as line">
-    <canvas data-sys-chart-line data-dataset="line.data" data-options="line.options" width="400" height="240"></canvas>
+    <canvas data-sys-chart-line
+            data-dataset="line.data"
+            data-options="line.options"
+            width="400"
+            height="240"></canvas>
 </div>
 
                         {% endhighlight %}
@@ -125,7 +141,8 @@
         </md-content>
 
         <div data-ng-controller="LineCtrl as line" layout="column" layout-align="center center" layout-margin>
-            <canvas data-sys-chart-line data-dataset="line.data" data-options="line.options" width="600" height="240"></canvas>
+            <canvas data-sys-chart-line data-dataset="line.data" data-options="line.options" width="600" height="240" data-ng-if="demo.run"></canvas>
+            <canvas data-sys-chart-line data-dataset="line.data" data-options="line.options" width="600" height="240" data-ng-if="!demo.run"></canvas>
         </div>
     </div>
 </div>

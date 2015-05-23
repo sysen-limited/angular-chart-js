@@ -6,13 +6,17 @@
 </div>
 
 <div layout="column" layout-margin>
-    <div data-ng-controller="DemoCtrl as demo" class="md-whiteframe-z1" flex>
+    <div data-ng-controller="DemoCtrl as demo" data-ng-init="demo.run = false" class="md-whiteframe-z1" flex>
         <md-toolbar>
             <div class="md-toolbar-tools">
                 <h2>
                     <span>Basic Usage</span>
                 </h2>
                 <span flex></span>
+                <md-button data-ng-click="demo.run = !demo.run" class="md-icon-button" aria-label="Run Demo">
+                    <md-tooltip>Run Demo</md-tooltip>
+                    <md-icon class="fa fa-lg" md-font-icon="fa-play"></md-icon>
+                </md-button>
                 <md-button data-ng-click="demo.showSource = !demo.showSource" class="md-icon-button" aria-label="View Source">
                     <md-tooltip>View Source</md-tooltip>
                     <md-icon class="fa fa-lg" md-font-icon="fa-code"></md-icon>
@@ -28,7 +32,10 @@
                         {% highlight html %}
 
 <div data-ng-controller="BarCtrl as bar">
-    <canvas data-sys-chart-bar data-dataset="bar.data" width="400" height="240"></canvas>
+    <canvas data-sys-chart-bar
+            data-dataset="bar.data"
+            width="400"
+            height="240"></canvas>
 </div>
 
                         {% endhighlight %}
@@ -46,12 +53,12 @@
             labels: ["January", "February", "March", "April", "May", "June", "July"],
             datasets: [
                 {
-                    fillColor: "rgba(220,220,220,0.2)",
+                    fillColor: "rgba(220,220,220,0.4)",
                     strokeColor: "rgba(220,220,220,1)",
                     data: [65, 59, 80, 81, 56, 55, 40]
                 },
                 {
-                    fillColor: "rgba(151,187,205,0.2)",
+                    fillColor: "rgba(151,187,205,0.4)",
                     strokeColor: "rgba(151,187,205,1)",
                     data: [28, 48, 40, 19, 86, 27, 90]
                 }
@@ -66,17 +73,22 @@
         </md-content>
 
         <div data-ng-controller="BarCtrl as bar" layout="column" layout-align="center center" layout-margin>
-            <canvas data-sys-chart-bar data-dataset="bar.data" width="600" height="240"></canvas>
+            <canvas data-sys-chart-bar data-dataset="bar.data" width="600" height="240" data-ng-if="demo.run"></canvas>
+            <canvas data-sys-chart-bar data-dataset="bar.data" width="600" height="240" data-ng-if="!demo.run"></canvas>
         </div>
     </div>
 
-    <div data-ng-controller="DemoCtrl as demo" class="md-whiteframe-z1" flex>
+    <div data-ng-controller="DemoCtrl as demo" data-ng-init="demo.run = false" class="md-whiteframe-z1" flex>
         <md-toolbar>
             <div class="md-toolbar-tools">
                 <h2>
                     <span>with Options</span>
                 </h2>
                 <span flex></span>
+                <md-button data-ng-click="demo.run = !demo.run" class="md-icon-button" aria-label="Run Demo">
+                    <md-tooltip>Run Demo</md-tooltip>
+                    <md-icon class="fa fa-lg" md-font-icon="fa-play"></md-icon>
+                </md-button>
                 <md-button data-ng-click="demo.showSource = !demo.showSource" class="md-icon-button" aria-label="View Source">
                     <md-tooltip>View Source</md-tooltip>
                     <md-icon class="fa fa-lg" md-font-icon="fa-code"></md-icon>
@@ -92,7 +104,11 @@
                         {% highlight html %}
 
 <div data-ng-controller="BarCtrl as bar">
-    <canvas data-sys-chart-bar data-dataset="bar.data" data-options="bar.options" width="400" height="240"></canvas>
+    <canvas data-sys-chart-bar
+            data-dataset="bar.data"
+            data-options="bar.options"
+            width="400"
+            height="240"></canvas>
 </div>
 
                         {% endhighlight %}
@@ -123,7 +139,8 @@
         </md-content>
 
         <div data-ng-controller="BarCtrl as bar" layout="column" layout-align="center center" layout-margin>
-            <canvas data-sys-chart-bar data-dataset="bar.data" data-options="bar.options" width="600" height="240"></canvas>
+            <canvas data-sys-chart-bar data-dataset="bar.data" data-options="bar.options" width="600" height="240" data-ng-if="demo.run"></canvas>
+            <canvas data-sys-chart-bar data-dataset="bar.data" data-options="bar.options" width="600" height="240" data-ng-if="!demo.run"></canvas>
         </div>
     </div>
 </div>
