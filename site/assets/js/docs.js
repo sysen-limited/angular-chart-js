@@ -203,6 +203,12 @@ angular.module('sysen', ['ngMaterial', 'sysChart'])
         };
     })
 
+    .controller('MenuCtrl', ['$location', function($location) {
+        this.goto = function(target) {
+            $location.hash(target);
+        }
+    }])
+
     .controller('DemoCtrl', function() {
         this.showSource = false;
     });
