@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html data-ng-app="sysen">
     <head>
-        <title>{{ page.title }} &middot; Angular Chart JS</title>
+        <title>{{ page.title }} &middot; Angular Chart.js</title>
 
         <base href="/" />
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/angular-material/0.10.0/angular-material.min.css" />
@@ -14,6 +14,7 @@
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
 
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-route.min.js"></script>
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-animate.min.js"></script>
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-aria.min.js"></script>
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-material/0.10.0/angular-material.min.js"></script>
@@ -23,7 +24,7 @@
         <div layout="column" flex>
             <md-toolbar class="md-whiteframe-glow-z2">
                 <div class="md-toolbar-tools">
-                    <h1 class="md-toolbar-tools md-display-3">Angular ChartJS</h1>
+                    <h1 class="md-toolbar-tools md-display-3">Angular Chart.js</h1>
                     <div flex></div>
                     <div data-ng-controller="MenuCtrl as menu" layout="column" layout-align="center center">
                         <md-menu md-position-mode="target-right target">
@@ -31,6 +32,12 @@
                                 <md-icon class="fa fa-lg" md-font-icon="fa-bars"></md-icon>
                             </md-button>
                             <md-menu-content width="4">
+                                <md-menu-item>
+                                    <md-button ng-disabled="true">Jump To</md-button>
+                                </md-menu-item>
+
+                                <md-divider></md-divider>
+
                                 <md-menu-item>
                                     <md-button ng-click="menu.goto('line')">Line</md-button>
                                 </md-menu-item>
@@ -61,10 +68,16 @@
             </md-toolbar>
 
             <md-content flex md-scroll-y>
-                <div layout="column" layout-margin>
-                    <md-content class="viewport" flex>
+                <div layout="column">
+                    <md-content class="viewport" layout-margin flex>
                         {{ content }}
                     </md-content>
+                    <md-toolbar layout-padding>
+                        <div class="md-toolbar-tools">
+                            <span flex></span>
+                            <md-button href="http://www.sysen.co.uk">Created by Sysen</md-button>
+                        </div>
+                    </md-toolbar>
                 </div>
             </md-content>
         </div>

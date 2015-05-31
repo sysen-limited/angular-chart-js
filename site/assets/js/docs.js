@@ -1,7 +1,11 @@
-angular.module('sysen', ['ngMaterial', 'sysChart'])
+angular.module('sysen', ['ngMaterial', 'ngRoute', 'sysChart'])
 
     .config(['$locationProvider', function ($location) {
         $location.html5Mode(true);
+    }])
+
+    .config(['$routeProvider', function ($route) {
+        $route.otherwise({ redirectTo: '/' });
     }])
 
     .config(['$mdThemingProvider', function ($mdThemingProvider) {
@@ -26,7 +30,7 @@ angular.module('sysen', ['ngMaterial', 'sysChart'])
             });
     }])
 
-    .controller('LineCtrl', function() {
+    .controller('LineCtrl', function () {
         this.data = {
             labels: ["January", "February", "March", "April", "May", "June"],
             datasets: [
@@ -52,7 +56,7 @@ angular.module('sysen', ['ngMaterial', 'sysChart'])
         };
     })
 
-    .controller('BarCtrl', function() {
+    .controller('BarCtrl', function () {
         this.data = {
             labels: ["January", "February", "March", "April", "May", "June", "July"],
             datasets: [
@@ -71,12 +75,12 @@ angular.module('sysen', ['ngMaterial', 'sysChart'])
 
         this.options = {
             scaleShowGridLines: false,
-            barShowStroke : false,
-            barDatasetSpacing : 0
+            barShowStroke: false,
+            barDatasetSpacing: 0
         };
     })
 
-    .controller('RadarCtrl', function() {
+    .controller('RadarCtrl', function () {
         this.data = {
             labels: ["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running"],
             datasets: [
@@ -96,17 +100,17 @@ angular.module('sysen', ['ngMaterial', 'sysChart'])
         };
 
         this.options = {
-            pointDot : false,
-            datasetStroke : false,
-            pointLabelFontSize : 12
+            pointDot: false,
+            datasetStroke: false,
+            pointLabelFontSize: 12
         };
     })
 
-    .controller('PolarCtrl', function() {
+    .controller('PolarCtrl', function () {
         this.data = [
             {
                 value: 300,
-                color:"#F7464A",
+                color: "#F7464A",
                 highlight: "#FF5A5E",
                 label: "Red"
             },
@@ -138,18 +142,18 @@ angular.module('sysen', ['ngMaterial', 'sysChart'])
         ];
 
         this.options = {
-            segmentShowStroke : false,
-            animationSteps : 20,
-            animationEasing : "linear",
-            animateScale : true
+            segmentShowStroke: false,
+            animationSteps: 20,
+            animationEasing: "linear",
+            animateScale: true
         };
     })
 
-    .controller('PieCtrl', function() {
+    .controller('PieCtrl', function () {
         this.data = [
             {
                 value: 300,
-                color:"#F7464A",
+                color: "#F7464A",
                 highlight: "#FF5A5E",
                 label: "Red"
             },
@@ -168,17 +172,17 @@ angular.module('sysen', ['ngMaterial', 'sysChart'])
         ];
 
         this.options = {
-            segmentShowStroke : false,
-            animationSteps : 40,
-            animationEasing : "linear"
+            segmentShowStroke: false,
+            animationSteps: 40,
+            animationEasing: "linear"
         };
     })
 
-    .controller('DoughnutCtrl', function() {
+    .controller('DoughnutCtrl', function () {
         this.data = [
             {
                 value: 300,
-                color:"#F7464A",
+                color: "#F7464A",
                 highlight: "#FF5A5E",
                 label: "Red"
             },
@@ -197,18 +201,20 @@ angular.module('sysen', ['ngMaterial', 'sysChart'])
         ];
 
         this.options = {
-            segmentShowStroke : false,
-            animationSteps : 40,
-            animationEasing : "linear"
+            segmentShowStroke: false,
+            animationSteps: 40,
+            animationEasing: "linear"
         };
     })
 
-    .controller('MenuCtrl', ['$location', function($location) {
-        this.goto = function(target) {
+    .controller('MenuCtrl', ['$location', '$anchorScroll', function ($location, $anchorScroll) {
+        this.goto = function (target) {
             $location.hash(target);
+            $anchorScroll();
+            $location.hash('');
         }
     }])
 
-    .controller('DemoCtrl', function() {
+    .controller('DemoCtrl', function () {
         this.showSource = false;
     });
